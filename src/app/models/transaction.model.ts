@@ -13,7 +13,7 @@ export enum TransactionStatus {
 export interface Transaction {
     id: number;
     timestamp: string;
-    amount: number;
+    amount: number | string;
     type: TransactionType;
     status: TransactionStatus;
     playerId: number;

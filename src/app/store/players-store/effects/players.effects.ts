@@ -5,6 +5,7 @@ import { PlayersBackendService } from '../services/players.backend.service';
 import { getPlayers, getPlayersFail, getPlayersSuccess } from '../actions/get-players.actions';
 import { catchError, map, mergeMap, of } from 'rxjs';
 import { getPlayer, getPlayerSuccess, getPlayerFail } from '../actions/get-player.actions';
+import { getTransactions, getTransactionsSuccess, getTransactionsFail } from '../actions/get-transactions.actions';
 
 
 @Injectable()
@@ -28,7 +29,7 @@ export class PlayersEffects {
                 )
             )
         )
-    )
+    );
 
     public getPlayerEffect$ = createEffect(
         (): Actions =>
@@ -49,7 +50,28 @@ export class PlayersEffects {
                 )
             )
         )
-    )
+    );
+
+    public getTransactionsEffect$ = createEffect(
+        (): Actions =>
+        this.actions$.pipe(
+            ofType(getTransactions),
+            mergeMap(({ payload }) => 
+                this.playersBackendService.getTransactions(payload.playerId).pipe(
+                    map((transactions) => 
+                        getTransactionsSuccess({
+                            payload: transactions
+                        })
+                    ),
+                    catchError((e) => {
+                        // TODO: improve by having an error handler service
+                        console.error(e);
+                        return of(getTransactionsFail());
+                    })
+                )
+            )
+        )
+    );
 
 
     constructor(

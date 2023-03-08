@@ -22,17 +22,21 @@
    
     
     <mat-toolbar color="primary" class='main-toolbar'>
-      <button mat-icon-button class="icon" (click)="sidenav.open()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span>Admin Portal</span>
-      <span class="spacer"></span>
-      <button mat-icon-button class="icon favorite-icon">
-        <mat-icon>favorite</mat-icon>
-      </button>
-      <button mat-icon-button class="icon" (click)='logout()'>
+      <div>
+        <button mat-icon-button class="icon" (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Admin Portal</span>
+      </div>
+      
+      <!-- <span class="spacer"></span> -->
+     <div>
+       <h5>Welcome David Mifsud</h5>
+       <button mat-icon-button class="icon" (click)='logout()'>
         <mat-icon>logout</mat-icon>
       </button>
+     </div>
+      
     </mat-toolbar>
      
      <div class='main-content-wrapper'>

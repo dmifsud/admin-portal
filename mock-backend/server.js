@@ -57,6 +57,30 @@ app.get("/players", (req, res) => {
   );
 });
 
+app.get("/players/:id/transactions", (req, res) => {
+  const playerId = req.params.id;
+  fakeDB.read(
+    (data) => {
+      setTimeout(() => {
+        const playerFound = data.players.find(player => player.id === +playerId);
+        if (playerFound) {
+          const transactions = data.player_transactions.filter((transaction) => transaction.playerId === playerFound.id)
+          res.send(transactions);
+        } else {
+          res.status(404).send({
+            errMessage: 'Player not found'
+          });
+        }
+      }, 500);
+      
+    },
+    (err) => {
+      console.error(err);
+      res.status(500).send("Server Error");
+    }
+  );
+});
+
 app.get('/players/:id', (req, res) => {
   const playerId = req.params.id;
   fakeDB.read(
@@ -79,6 +103,8 @@ app.get('/players/:id', (req, res) => {
     }
   );
 });
+
+
 
 app.post("/data", (req, res) => {
   const newData = req.body;

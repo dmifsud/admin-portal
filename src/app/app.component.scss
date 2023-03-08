@@ -12,4 +12,16 @@
 .main-toolbar {
     position: fixed;
     z-index: 9001;
+
+    display: flex;
+    justify-content: space-between;
+    
+    & > div {
+        display: flex;
+        align-items: center;
+    }
+
+    h5 {
+        font-size: 12px;
+    }
 }

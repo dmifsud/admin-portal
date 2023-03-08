@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { AuthService } from './shared/services/auth.service';
+import { AuthHelper } from './helpers/auth.helper';
 
 @Component({
   selector: 'app-root',
@@ -10,9 +11,10 @@ import { AuthService } from './shared/services/auth.service';
 export class AppComponent {
   title = 'admin-portal';
 
+  
   constructor(
     private authService: AuthService
-  ) {}
+    ) {}
 
   public logout(): void {
     this.authService.logout();

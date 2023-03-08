@@ -3,6 +3,7 @@ import { createSelector } from '@ngrx/store';
 import { Player } from 'src/app/models/player.model';
 import { selectPlayerFeature } from './player-state.selector';
 import { CurrencyFormatPipe } from '../../../shared/pipes/currency-format.pipe';
+import { Transaction } from '../../../models/transaction.model';
 
 export const selectPlayer = createSelector(
     selectPlayerFeature,
@@ -23,5 +24,23 @@ export const selectPlayersDataList = createSelector(
             ...player,
             balance: currencyFormat.transform(player.balance) 
         } as Player))
+    }
+);
+
+
+export const selectPlayerTransactions = createSelector(
+    selectPlayerFeature,
+    (state) => state.getPlayerTransactions
+);
+
+export const selectPlayerTransactionsDataList = createSelector(
+    selectPlayerTransactions,
+    (state) => {
+        const currencyFormat = new CurrencyFormatPipe();
+        
+        return ((state?.data ?? []) as Transaction[]).map((transaction) => ({
+            ...transaction,
+            amount: currencyFormat.transform(transaction.amount) 
+        } as Transaction))
     }
 );
