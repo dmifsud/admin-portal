@@ -1,8 +1,15 @@
 .main-content-wrapper {
-    height: calc(100vh - 64px);
+    position: relative;
+    // min-height: calc(100vh - 124px);
 }
 
 .menu-link {
     display: block;
     min-width: 260px;
+}
+
+
+.main-toolbar {
+    position: fixed;
+    z-index: 9001;
 }

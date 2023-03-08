@@ -1,0 +1,37 @@
+$mobile: 480px;
+$tablets: 768px;
+$laptops: 1024px;
+$desktops: 1200px;
+$largescreens: 1201px;
+
+
+.main-container-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    height: 100vh;
+    top: 64px;
+
+    @media (min-width: $largescreens) {
+        max-width: $largescreens;
+    }
+
+    @media (max-width: $desktops) {
+        max-width: calc(100% - 15vw);
+        
+    }
+
+    @media (max-width: $laptops) {
+        max-width: calc(100% - 10vw);
+    }
+
+    @media (max-width: $tablets) {
+        max-width: calc(100% - 8px);
+    }
+
+
+    @media (max-width: $mobile) {
+        max-width: calc(100% - 4px);
+    }
+
+}
