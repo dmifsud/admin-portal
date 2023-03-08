@@ -6,6 +6,7 @@ import { getPlayers, getPlayersFail, getPlayersSuccess } from '../actions/get-pl
 import { catchError, map, mergeMap, of } from 'rxjs';
 import { getPlayer, getPlayerSuccess, getPlayerFail } from '../actions/get-player.actions';
 import { getTransactions, getTransactionsSuccess, getTransactionsFail } from '../actions/get-transactions.actions';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -66,6 +67,7 @@ export class PlayersEffects {
                     catchError((e) => {
                         // TODO: improve by having an error handler service
                         console.error(e);
+                        void this.router.navigate(['/players']);
                         return of(getTransactionsFail());
                     })
                 )
@@ -77,6 +79,7 @@ export class PlayersEffects {
     constructor(
         private actions$: Actions,
         private playersBackendService: PlayersBackendService,
+        private router: Router,
         private store: Store
     ) {}
 }

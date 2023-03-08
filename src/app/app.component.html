@@ -2,19 +2,13 @@
 <mat-sidenav-container
     class="example-container" (backdropClick)="sidenav.close()">
   <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" disableClose>
-    
-    <a
-      (click)="sidenav.close()"
-      mat-ripple
-      routerLink="/players"
-      routerLinkActive="active"
-      class='menu-link'
-    >
-      <mat-list-item>
-        <mat-icon mat-list-icon>home</mat-icon>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/players" (click)="sidenav.close()">
+        <mat-icon mat-list-icon>group</mat-icon>
         <span matLine>Players</span>
-      </mat-list-item>
-    </a>
+      </a>
+    </mat-nav-list>
        
   </mat-sidenav>
 
@@ -23,18 +17,22 @@
     
     <mat-toolbar color="primary" class='main-toolbar'>
       <div>
-        <button mat-icon-button class="icon" (click)="sidenav.open()">
-          <mat-icon>menu</mat-icon>
-        </button>
+        <div *ngIf='loggedInUser$ | async as loggedInUser'>
+          <button *ngIf='loggedInUser.data && loggedInUser.loaded' mat-icon-button class="icon" (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
         <span>Admin Portal</span>
       </div>
       
       <!-- <span class="spacer"></span> -->
-     <div>
-       <h5>Welcome David Mifsud</h5>
-       <button mat-icon-button class="icon" (click)='logout()'>
-        <mat-icon>logout</mat-icon>
-      </button>
+     <div *ngIf='loggedInUser$ | async as loggedInUser'>
+      <div *ngIf='loggedInUser.data && loggedInUser.loaded' class='welcome-container'>
+        <h5>Welcome {{loggedInUser.data.name}} {{loggedInUser.data.surname}}</h5>
+        <button mat-icon-button class="icon" (click)='logout()'>
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
      </div>
       
     </mat-toolbar>

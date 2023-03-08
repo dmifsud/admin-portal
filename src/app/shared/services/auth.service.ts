@@ -11,16 +11,14 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient,
-    private router: Router) {}
+  constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<AuthUser> {
+  public login(username: string, password: string): Observable<AuthUser> {
+    console.log('calling login');
     return this.http.post<AuthUser>('http://localhost:3000/login', {
       username,
       password
-    }).pipe(tap((data) => {
-      AuthHelper.setLoggedInUser(data);
-    }));;
+    });
 
     /*
       dmifsud: test
@@ -28,9 +26,5 @@ export class AuthService {
       kspiteri: test2
     */
   }
-
-  logout(): void {
-    AuthHelper.clearSession();
-    void this.router.navigate(['login']);
-  }
+  
 }

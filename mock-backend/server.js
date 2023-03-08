@@ -141,7 +141,6 @@ app.post("/data", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-  console.log("req.body", req.body);
   fakeDB.read(
     (data) => {
       
@@ -161,12 +160,17 @@ app.post("/login", (req, res) => {
             user.username === req.body.username &&
             user._data.hashedPassword === hash
         );
-        if (foundUser) {
-          const { _data, ...user } = foundUser;
-          res.status(200).send(user);
-        } else {
-          res.status(401).send("Invalid credentials");
-        }
+        setTimeout(() => {
+          if (foundUser) {
+            const { _data, ...user } = foundUser;
+            res.status(200).send(user);
+          } else {
+            res.status(401).send({
+              errMessage: "Invalid Credentials"
+            });
+          }
+        }, 500);
+        
       } else {
         res.status(500).send('Server Error');
       }

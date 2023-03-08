@@ -3,6 +3,7 @@
 		[formGroup]="loginForm"
 		name="form"
 		novalidate
+    class='login-form'
 	>
 
   <mat-card>
@@ -12,24 +13,32 @@
       </mat-card-header>
       <mat-card-content>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Username</mat-label>
-          <input matInput formControlName="username">
-        </mat-form-field>
-          
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+          </mat-form-field>
+        </div>
         
-        <mat-form-field appearance="fill">
-          <mat-label>Enter your password</mat-label>
-          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-          </button>
-        </mat-form-field>
+          
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" type='button'>
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        
       
 
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button type='submit'>LOGIN</button>
+      <mat-card-actions *ngIf='loggedInUser$ | async as loggedInUser'>
+        <p *ngIf='loggedInUser.error' class='error-message'>An error occurred. Please try again.</p>
+        <button mat-flat-button color="primary" type='submit' [disabled]='loggedInUser.loading'>
+          {{loggedInUser.loading ? 'LOADING&hellip;' : 'LOGIN'}}
+        </button>
       </mat-card-actions>
     </mat-card>
 

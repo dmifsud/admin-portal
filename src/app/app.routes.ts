@@ -6,6 +6,11 @@ import { NonauthGuard } from './nonauth.guard';
 import { PlayerDetailsComponent } from './features/players/players/player-details/player-details.component';
 
 export const routes: Route[] = [
+	{
+		path: '',
+		redirectTo: '/login',
+		pathMatch: 'full',
+	},
 	// PUBLIC
 	{
 		path: 'login',

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { AuthService } from '../../../shared/services/auth.service';
+import { AuthFacade } from '../../../store/logged-in-user-store/services/auth.facade.service';
 
-@UntilDestroy()
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,8 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
+    private authFacade: AuthFacade,
   ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -25,18 +21,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  public loggedInUser$ = this.authFacade.loggedInUser$;
+
   ngOnInit(): void {}
 
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-  
-      this.authService
-        .login(username, password)
-        .pipe(untilDestroyed(this))
-        .subscribe(() => {
-          this.router.navigate(['/players']);
-        });
+      this.authFacade.login(username, password);
     }
   }
 }

@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { PlayersStoreModule } from './store/players-store/players-store.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { LoggedInUserStoreModule } from './store/logged-in-user-store/logged-in-user-store.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -36,7 +37,8 @@ import { EffectsModule } from '@ngrx/effects';
       logOnly: true, // TODO: improve by reading from a config file
       autoPause: true,
     }),
-    PlayersStoreModule
+    PlayersStoreModule,
+    LoggedInUserStoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

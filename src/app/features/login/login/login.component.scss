@@ -1,0 +1,27 @@
+.login-form {
+    height: calc(100vh - 42px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-form-field {
+        width: 100%;
+    }
+
+    .mat-card {
+        max-width: 454px;
+        width: 80%;
+    }
+
+    .mat-card-actions {
+        padding: 0 8px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    .error-message {
+        color: red;
+    }
+}
