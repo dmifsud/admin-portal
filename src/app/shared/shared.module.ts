@@ -13,6 +13,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { MainContainerCardComponent } from './components/main-container/main-container-card/main-container-card.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CurrencyFormatPipe } from './pipes/currency-format.pipe';
 
 const materialModule = [
     MatCardModule,
@@ -24,13 +26,16 @@ const materialModule = [
     MatSidenavModule,
     MatListModule,
     MatTableModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTabsModule
 ];
 
 @NgModule({
   declarations: [
     MainContainerComponent,
-    MainContainerCardComponent
+    MainContainerCardComponent,
+
+    CurrencyFormatPipe
   ],
   imports: [
     CommonModule,
@@ -41,7 +46,9 @@ const materialModule = [
     ...materialModule,
 
     MainContainerComponent,
-    MainContainerCardComponent
+    MainContainerCardComponent,
+
+    CurrencyFormatPipe
   ]
 })
 export class SharedModule { }

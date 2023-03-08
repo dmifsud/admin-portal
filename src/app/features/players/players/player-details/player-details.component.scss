@@ -1,0 +1,43 @@
+.spinner-container {
+    padding: 35px;
+    .mat-spinner {
+        margin: 0 auto;
+    }
+}
+
+.title-container {
+    padding: 2%;
+
+    h2 {
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        margin-left: 10px;
+    }
+}
+
+.player-details-table {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3% 0;
+  }
+  
+  .player-details-table > div {
+    &.label {
+        flex-basis: 21%;
+    }
+
+    &.prop {
+        flex-basis: 71%;
+    }
+    display: flex;
+    margin-bottom: 24px;
+    padding: 0 2%;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  
+  
+  

@@ -1,0 +1,34 @@
+<app-main-container>
+    <app-main-container-card>
+        <div *ngIf='(player$ | async) as player'>
+            <div class='spinner-container' *ngIf='player.loading'>
+                <mat-spinner color="primary" diameter="48" strokeWidth="3.84"></mat-spinner>
+              </div>
+            <div *ngIf='player.data && player.loaded'>
+                <div class='title-container'>
+                    <h2>
+                        <mat-icon *ngIf='player.data.status === playerStatus.Active'>person</mat-icon>  
+                        <mat-icon *ngIf='player.data.status === playerStatus.Disabled'>person_off</mat-icon>  
+                        <span>{{player.data.name}} {{player.data.surname}}</span>
+                    </h2>
+                </div>
+                <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+                    <mat-tab label="Details">
+                        <!-- TODO: this can be changed to a component and allow edit functionality -->
+                        <div class='player-details-table'>
+                            <div class='label'>ID:</div><div class='prop'>{{player.data.id}}</div>
+                            <div class='label'>Name:</div><div class='prop'>{{player.data.name}}</div>
+                            <div class='label'>Surname:</div><div class='prop'>{{player.data.surname}}</div>
+                            <div class='label'>Email:</div><div class='prop'>{{player.data.email}}</div>
+                            <div class='label'>Status:</div><div class='prop'>{{player.data.status}}</div>
+                            <div class='label'>Balance:</div><div class='prop'>{{player.data.balance | currencyFormat}}</div>
+                            <div class='label'>Registration Timestamp:</div><div class='prop'>{{player.data.registrationTimestamp}}</div>
+                        </div>
+
+                    </mat-tab>
+                    <mat-tab label="Transactions">Content 2</mat-tab>
+                  </mat-tab-group>
+            </div>
+        </div>
+    </app-main-container-card>
+</app-main-container>

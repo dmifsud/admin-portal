@@ -3,6 +3,7 @@ import { PlayersFacade } from '../../../store/players-store/services/players.fac
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { filter } from 'rxjs';
 import { Player, PlayerStatus } from '../../../models/player.model';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -37,13 +38,14 @@ export class PlayersComponent implements OnInit {
   public playerStatus = PlayerStatus;
   
   constructor(
-    public playersFacade: PlayersFacade
+    private playersFacade: PlayersFacade,
+    private router: Router
     ) { }
 
     public players$ = this.playersFacade.players$;
     public playersDataList$ = this.playersFacade.playersDataList$;
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.playersFacade.getPlayers();
 
     this.playersFacade.playersDataList$
@@ -53,6 +55,11 @@ export class PlayersComponent implements OnInit {
       .subscribe(players => {
         this.dataSource = players;
       })
+  }
+
+  public selectRow(player: Player): void {
+    console.log('redirect to ', player.id);
+    void this.router.navigate(['/players', player.id]);
   }
 
 }

@@ -9,5 +9,7 @@ export interface Player {
     name: string;
     surname: string;
     email: string;
-    status: PlayerStatus
+    status: PlayerStatus;
+    balance: number | string;
+    registrationTimestamp: string;
 }
