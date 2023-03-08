@@ -42,6 +42,21 @@ app.get("/data", (req, res) => {
   );
 });
 
+app.get("/players", (req, res) => {
+  fakeDB.read(
+    (data) => {
+      setTimeout(() => {
+        res.send(data.players);
+      }, 500);
+      
+    },
+    (err) => {
+      console.error(err);
+      res.status(500).send("Server Error");
+    }
+  );
+});
+
 app.post("/data", (req, res) => {
   const newData = req.body;
 
@@ -116,6 +131,8 @@ app.post("/login", (req, res) => {
     }
   );
 });
+
+
 
 // END MOCK API
 

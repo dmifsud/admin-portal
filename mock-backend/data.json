@@ -67,7 +67,7 @@
       "name": "Sarah",
       "surname": "Williams",
       "email": "sarahwilliams@example.com",
-      "status": "INACTIVE",
+      "status": "DISABLED",
       "balance": 750,
       "registrationTimestamp": "2022-12-03T21:02:27.273Z"
     },
@@ -112,7 +112,7 @@
       "name": "William",
       "surname": "Wilson",
       "email": "williamwilson@example.com",
-      "status": "INACTIVE",
+      "status": "DISABLED",
       "balance": 60,
       "registrationTimestamp": "2022-06-08T11:44:34.273Z"
     },

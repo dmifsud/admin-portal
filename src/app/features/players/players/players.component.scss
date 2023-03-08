@@ -1,3 +1,10 @@
 .players-table {
     width: 100%;
 }
+
+.spinner-container {
+    padding: 35px;
+    .mat-spinner {
+        margin: 0 auto;
+    }
+}

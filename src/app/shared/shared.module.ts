@@ -10,6 +10,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { MainContainerCardComponent } from './components/main-container/main-container-card/main-container-card.component';
 
@@ -22,7 +23,8 @@ const materialModule = [
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressSpinnerModule
 ];
 
 @NgModule({
