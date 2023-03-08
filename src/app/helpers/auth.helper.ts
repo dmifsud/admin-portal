@@ -16,4 +16,8 @@ export class AuthHelper {
     public static setLoggedInUser(authUser: AuthUser): void {
         sessionStorage.setItem(authKey, JSON.stringify(authUser))
     }
+
+    public static clearSession(): void {
+        sessionStorage.clear();
+    }
 }

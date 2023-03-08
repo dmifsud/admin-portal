@@ -1,56 +1,148 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "username": "dmifsud",
-            "name": "David",
-            "surname": "Mifsud",
-            "email": "david.mifsud89@gmail.com",
-            "role": "ADMIN",
-            "_data": {
-                "hashedPassword": "1af7f1264e701dd1f5060a624ed03a72e538e292b24a57451d015965c2d4f67da4023524a64b6e8a52052fc6ff157cde0bac991266171fef49fc76eff48d6488"
-            }
-        }, {
-            "id": 2,
-            "username": "aseychell",
-            "name": "Aldrin",
-            "surname": "Seychell",
-            "email": "aldrin.seychell@amusnetgaming.com",
-            "role": "ADMIN",
-            "_data": {
-                "hashedPassword": "18a7413fb52683d9c5110a9f4b805586acab094a7192ac4e6e09aa24c5209e44e39e7f4bd07200b952aea11eeaada610a01db01067afd5ec6039739e9d7325cd"
-            }
-        },{
-            "id": 2,
-            "username": "kspiteri",
-            "name": "Keith",
-            "surname": "Spiteri",
-            "email": "keith.spiteri@amusnetgaming.com",
-            "role": "ADMIN",
-            "_data": {
-                "hashedPassword": "4e061adfe33a91975ae7082b1240a65eba3d6b8eb7fd44590536550b2d2ebb610b5183ade8a4d471f7ae67560c0f854531cfd745a93332699355a0ed665736c3"
-            }
-        }
-    ],
-    "players": [
-        {
-            "id": 1,
-            "name": "John",
-            "surname": "Doe",
-            "email": "johndoe@amusnetgaming.com",
-            "status": "ACTIVE",
-            "balance": 500,
-            "registrationTimestamp": "2023-03-06T18:18:22.273Z"
-        }
-    ],
-    "player_transactions": [
-        {
-            "id": 1,
-            "timestamp": "2023-03-06T18:18:22.273Z",
-            "amount": 50,
-            "type": "DEPOSIT",
-            "status": "COMPLETED",
-            "playerId": 1
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "dmifsud",
+      "name": "David",
+      "surname": "Mifsud",
+      "email": "david.mifsud89@gmail.com",
+      "role": "ADMIN",
+      "_data": {
+        "hashedPassword": "1af7f1264e701dd1f5060a624ed03a72e538e292b24a57451d015965c2d4f67da4023524a64b6e8a52052fc6ff157cde0bac991266171fef49fc76eff48d6488"
+      }
+    },
+    {
+      "id": 2,
+      "username": "aseychell",
+      "name": "Aldrin",
+      "surname": "Seychell",
+      "email": "aldrin.seychell@amusnetgaming.com",
+      "role": "ADMIN",
+      "_data": {
+        "hashedPassword": "18a7413fb52683d9c5110a9f4b805586acab094a7192ac4e6e09aa24c5209e44e39e7f4bd07200b952aea11eeaada610a01db01067afd5ec6039739e9d7325cd"
+      }
+    },
+    {
+      "id": 2,
+      "username": "kspiteri",
+      "name": "Keith",
+      "surname": "Spiteri",
+      "email": "keith.spiteri@amusnetgaming.com",
+      "role": "ADMIN",
+      "_data": {
+        "hashedPassword": "4e061adfe33a91975ae7082b1240a65eba3d6b8eb7fd44590536550b2d2ebb610b5183ade8a4d471f7ae67560c0f854531cfd745a93332699355a0ed665736c3"
+      }
+    }
+  ],
+  "players": [
+    {
+      "id": 1,
+      "name": "John",
+      "surname": "Doe",
+      "email": "johndoe@amusnetgaming.com",
+      "status": "ACTIVE",
+      "balance": 500,
+      "registrationTimestamp": "2023-03-06T18:18:22.273Z"
+    },
+    {
+      "id": 245,
+      "name": "Alice",
+      "surname": "Johnson",
+      "email": "alicejohnson@example.com",
+      "status": "ACTIVE",
+      "balance": 350,
+      "registrationTimestamp": "2022-09-18T12:36:41.273Z"
+    },
+    {
+      "id": 37,
+      "name": "Bob",
+      "surname": "Smith",
+      "email": "bobsmith@example.com",
+      "status": "ACTIVE",
+      "balance": 650,
+      "registrationTimestamp": "2022-05-10T08:55:12.273Z"
+    },
+    {
+      "id": 801,
+      "name": "Sarah",
+      "surname": "Williams",
+      "email": "sarahwilliams@example.com",
+      "status": "INACTIVE",
+      "balance": 750,
+      "registrationTimestamp": "2022-12-03T21:02:27.273Z"
+    },
+    {
+      "id": 169,
+      "name": "Michael",
+      "surname": "Brown",
+      "email": "michaelbrown@example.com",
+      "status": "ACTIVE",
+      "balance": 250,
+      "registrationTimestamp": "2023-02-21T06:46:59.273Z"
+    },
+    {
+      "id": 392,
+      "name": "Emily",
+      "surname": "Jones",
+      "email": "emilyjones@example.com",
+      "status": "ACTIVE",
+      "balance": 480,
+      "registrationTimestamp": "2022-11-11T18:30:01.273Z"
+    },
+    {
+      "id": 555,
+      "name": "Jacob",
+      "surname": "Garcia",
+      "email": "jacobgarcia@example.com",
+      "status": "ACTIVE",
+      "balance": 900,
+      "registrationTimestamp": "2022-07-02T14:57:09.273Z"
+    },
+    {
+      "id": 732,
+      "name": "Ava",
+      "surname": "Rodriguez",
+      "email": "avarodriguez@example.com",
+      "status": "ACTIVE",
+      "balance": 120,
+      "registrationTimestamp": "2022-12-25T03:15:52.273Z"
+    },
+    {
+      "id": 918,
+      "name": "William",
+      "surname": "Wilson",
+      "email": "williamwilson@example.com",
+      "status": "INACTIVE",
+      "balance": 60,
+      "registrationTimestamp": "2022-06-08T11:44:34.273Z"
+    },
+    {
+      "id": 601,
+      "name": "Sophia",
+      "surname": "Lee",
+      "email": "sophialee@example.com",
+      "status": "ACTIVE",
+      "balance": 550,
+      "registrationTimestamp": "2022-10-15T16:23:17.273Z"
+    },
+    {
+      "id": 102,
+      "name": "Ethan",
+      "surname": "Scott",
+      "email": "ethanscott@example.com",
+      "status": "ACTIVE",
+      "balance": 200,
+      "registrationTimestamp": "2022-07-26T05:08:08.273Z"
+    }
+  ],
+  "player_transactions": [
+    {
+      "id": 1,
+      "timestamp": "2023-03-06T18:18:22.273Z",
+      "amount": 50,
+      "type": "DEPOSIT",
+      "status": "COMPLETED",
+      "playerId": 1
+    }
+  ]
 }

@@ -1,1 +1,45 @@
-  <router-outlet></router-outlet>
+
+<mat-sidenav-container
+    class="example-container" (backdropClick)="sidenav.close()">
+  <mat-sidenav #sidenav (keydown.escape)="sidenav.close()" disableClose>
+    
+    <a
+      (click)="sidenav.close()"
+      mat-ripple
+      routerLink="/players"
+      routerLinkActive="active"
+      class='menu-link'
+    >
+      <mat-list-item>
+        <mat-icon mat-list-icon>home</mat-icon>
+        <span matLine>Players</span>
+      </mat-list-item>
+    </a>
+       
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+   
+    
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="icon" (click)="sidenav.open()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Admin Portal</span>
+      <span class="spacer"></span>
+      <button mat-icon-button class="icon favorite-icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="icon" (click)='logout()'>
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+     
+     <div class='main-content-wrapper'>
+       <router-outlet></router-outlet>
+     </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

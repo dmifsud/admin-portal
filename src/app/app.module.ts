@@ -8,6 +8,7 @@ import { LoginModule } from './features/login/login.module';
 import { PlayersModule } from './features/players/players.module';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -23,6 +24,7 @@ import { routes } from './app.routes';
     RouterModule.forRoot(
 			routes
 		),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
