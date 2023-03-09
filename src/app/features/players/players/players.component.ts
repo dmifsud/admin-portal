@@ -38,7 +38,6 @@ export class PlayersComponent implements OnInit {
   }
 
   public selectRow(player: Player): void {
-    console.log('redirect to ', player.id);
     void this.router.navigate(['/players', player.id]);
   }
 

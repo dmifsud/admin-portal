@@ -104,42 +104,6 @@ app.get('/players/:id', (req, res) => {
   );
 });
 
-
-
-app.post("/data", (req, res) => {
-  const newData = req.body;
-
-  // Read the existing data from the JSON file
-  fakeDB.read((data) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send("Server Error");
-      return;
-    }
-
-    const jsonData = JSON.parse(data);
-    console.log("newData", newData);
-
-    // Write the updated data to the JSON file
-    fs.writeFile(
-      DATA_FILE,
-      JSON.stringify({
-        ...jsonData,
-        newData,
-      }),
-      (err) => {
-        if (err) {
-          console.error(err);
-          res.status(500).send("Server Error");
-          return;
-        }
-
-        res.send("Data saved successfully");
-      }
-    );
-  });
-});
-
 app.post("/login", (req, res) => {
   fakeDB.read(
     (data) => {

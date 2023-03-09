@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { catchError, distinctUntilChanged, filter, map, mergeMap, of, tap, switchMap, merge } from 'rxjs';
+import { catchError, filter, map, mergeMap, of, tap } from 'rxjs';
 import {
   getLoggedInUser,
   getLoggedInUserSuccess,
@@ -23,7 +23,6 @@ export class LoggedInUserEffects {
         mergeMap(({ payload }) =>
           this.authService.login(payload.username, payload.password).pipe(
             map((user) => {
-                console.log('success', user);
                 return getLoggedInUserSuccess({
                     payload: {
                         user,

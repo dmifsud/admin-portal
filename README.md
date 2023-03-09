@@ -1,30 +1,48 @@
-# AdminPortal
+# Admin Portal
+###### By David Mifsud
+
+This project has been custom built as part of an interview prcocess task given by Amusnet.
+
+## Tech Stack
+
+- Frontend: Angular (14.1.1)
+  - Angular was chosen for this task for several reasons. Mainly due to the case scenario being more of a Backoffice portal, which means heavy emphasis was made on the scalibility in terms of code structure of the whole project. If there was more emphasis on heavy UI logic and customization, React would have been a better choice.
+  - Material design was chosen to build UI components that fit the case scenario of the task (i.e. Backoffice portal).
+  - NGRX (Redux) was added in to show how easily scalable the project can become without too many workarounds and having a centralized state.
+  - SCSS for styling
+- Backend: NodeJs/ExpressJs 
+  - Was used to build a quick and easy way to simulate a REST API. Implementation has been treated as a prototype for demo purposes.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
 
+## Prerequisites
+
+Please make sure you have NodeJs installed globally on your machine. This was implemented using `v14.18.1` and also tested on both Linux (Ubuntu) and MacOS using Node `v16.19.0`.
+
+Before running the servers, execute `npm install` for all dependencies required.
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+*Note: Please make sure the backend is running as well. See below.*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Prototype Backend server
 
-## Build
+Run `npm run backend` for the API calls to run through and test the app.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The application is using a simple custom made JSON based "Database" built purposely for the use of this task.
 
-## Running unit tests
+To test, navigate to `http://localhost:3000/data`. This should list all the data in the JSON file "Database".
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+*Note: Some of the implemented APIs have a delay of 500ms to simulate network delay on the app.* 
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Testing
 
-## Further help
+Testing has been mainly done on Chrome during development.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+As a bonus, the user actions in store can be monitored in real time using this [Chrome Extension Dev Tool](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en) to inspect Redux.
 
 
 ## Scalability
@@ -34,9 +52,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 3. Reusable components
 3. Use of layered services
 
+## Improvements
 
-#improvements
-
-Eslint
-Prettier
-NGRX (store-localstorage)
+- Eslint
+- Use of Prettier
+- NGRX (store-localstorage)
+- Styilng theme, mixins, and more globalized variables
+- UI Responsiveness
+- Centralized config file with different environments
+- Unit tests
+- Better module/routing structure for lazy loading
+- Better error handling, especially in Login form
