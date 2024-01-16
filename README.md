@@ -1,7 +1,7 @@
 # Admin Portal
 ###### By David Mifsud
 
-This project has been custom built as part of an interview prcocess task given by Amusnet.
+This project has been custom built as part of an interview prcocess task.
 
 ## Tech Stack
 
